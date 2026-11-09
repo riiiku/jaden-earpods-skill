@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jaden EarPods Skill"
+  short_description: "Use USB-C EarPods for Typeless and Codex"
+  default_prompt: "Use $jaden-earpods-skill to set up my USB-C EarPods for Typeless dictation and Codex steering."
