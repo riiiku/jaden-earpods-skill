@@ -1,5 +1,7 @@
 # Setup and recovery
 
+Installing the Skill adds setup instructions to Codex. Installing the helper builds the local app that receives EarPods button presses and runs it through a user LaunchAgent. Follow the terminal steps below for a manual setup. [Install from Codex](https://github.com/riiiku/jaden-earpods-skill#从-codex-安装)
+
 ## Install the helper
 
 Connect Apple USB-C EarPods. Install Typeless and the Codex desktop app separately. The helper builds with the system `xcrun swiftc` and runs in the logged-in user's GUI session.
@@ -31,11 +33,38 @@ Command + Return goes to the foreground Codex desktop app. Focus the composer be
 
 ## 中文设置步骤
 
-1. 插入 Apple USB-C EarPods。在 Skill 目录运行 `bash scripts/earpods.sh preflight`，通过后运行 `bash scripts/earpods.sh install`。
-2. Typeless「设置 → 快捷键 → 语音输入」添加「右 Shift」。也可以在录入快捷键时按耳机中间键。在「音频」按需选择 EarPods 麦克风。
-3. Codex「设置 → 常规 → 编辑器」将「发送快捷键」设为 Command＋回车。「后续消息处理方式」在下一行，选择「引导」。
-4. 运行 `bash scripts/earpods.sh permission`，在 macOS「系统设置 → 隐私与安全性 → 辅助功能」开启 **Jaden EarPods Remote**。回到 Codex 输入框，用中间键说话、结束，等文字出现后按「＋」。
-5. 运行 `bash scripts/earpods.sh status` 查映射和进程状态。恢复原线控时运行 `bash scripts/earpods.sh uninstall`，并按需在辅助功能中移除权限条目。
+用 Codex 安装时，先装 Skill，再调用它安装本机助手。前者把安装说明加入 Codex，后者负责识别线控按键。[从 Codex 安装](https://github.com/riiiku/jaden-earpods-skill#从-codex-安装)
+
+### 手动安装助手
+
+插入 Apple USB-C 有线 EarPods，在终端进入包含 `SKILL.md` 的目录。手动下载仓库的用户可以这样进入。
+
+```bash
+git clone https://github.com/riiiku/jaden-earpods-skill.git
+cd jaden-earpods-skill/jaden-earpods-skill
+```
+
+先检查设备和已有按键映射，通过后再安装。
+
+```bash
+bash scripts/earpods.sh preflight
+bash scripts/earpods.sh install
+```
+
+如果提示缺少 Xcode 命令行工具，运行 `xcode-select --install`，安装完成后重试检查。若已有工具占用中键或音量加键，先用原工具的卸载或恢复方式处理冲突。
+
+### 配置应用并试按
+
+1. 在 Typeless「设置 → 快捷键 → 语音输入」点「添加另一个」，录入**右 Shift**。助手运行后，按耳机中键也能录入这个键。需要用耳机收音时，在「音频」选择 EarPods 麦克风。
+2. 在 Codex「设置 → 常规 → 编辑器」把「发送快捷键」设为 **Command＋回车**。下一行是「后续消息处理方式」。选「引导」，执行中提交的补充会发给当前任务。选「排队」，补充会等当前任务结束。
+3. 运行 `bash scripts/earpods.sh permission`。在 macOS「系统设置 → 隐私与安全性 → 辅助功能」开启 **Jaden EarPods Remote**。如果列表里没有它，从 `~/Applications/Jaden EarPods Remote.app` 添加。
+4. 回到 Codex，把光标放进输入框。按中键说一句测试，再按中键结束。等文字出现，确认后按「＋」。验证引导时，在 Codex 正执行一项任务的过程中再补一句。
+
+### 检查与恢复
+
+- 「＋」仍在调音量时，确认 Codex 桌面应用在前台，且辅助功能已授权。切到其他应用再回 Codex，可以刷新映射。
+- 运行 `bash scripts/earpods.sh status` 检查设备、按键映射和助手状态。
+- 运行 `bash scripts/earpods.sh uninstall` 卸载助手并撤销它设置的线控映射。需要时可在 macOS 辅助功能中移除权限条目。
 
 ## Diagnose and recover
 
