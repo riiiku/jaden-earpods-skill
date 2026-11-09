@@ -2,7 +2,7 @@
 
 用 Mac 上的 **Apple USB-C 有线 EarPods** 给 Codex 发语音指令。按中键开始说，再按一次，Typeless 就把文字填进 Codex 输入框。看完按「＋」提交，手可以留在耳机线控上。
 
-![EarPods 线控操作示意。按中键开始和结束 Typeless 听写，核对转写后按加号向 Codex 提交。空闲时发送新指令，执行中可引导当前任务。](assets/earpods-workflow.png)
+![EarPods 线控操作示意。按中键开始和结束 Typeless 听写，核对转写后按加号向 Codex 提交。空闲时发送新指令，执行中可引导当前任务。](assets/earpods-workflow-v2.png)
 
 ## 「＋」按下去会怎样
 
