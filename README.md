@@ -46,4 +46,19 @@ Ask Codex to install the `jaden-earpods-skill` folder from `riiiku/jaden-earpods
 
 The build targets macOS 13 or later. The [verification notes](jaden-earpods-skill/references/setup.md#verification) describe the prototype and package checks.
 
+## References
+
+感谢 **Sergo Lebedovich**。开发时参考了他的 EarPods AI Keys，包括如何识别 USB-C EarPods、用 `hidutil` 对指定设备做按键映射，以及根据连接事件恢复映射。该项目的默认配置用于 macOS 原生听写、退格和回车。[EarPods AI Keys](https://github.com/metalebedenko/earpods-ai-keys)
+
+本项目沿着这个思路另行实现了 **Typeless 听写和 Codex 提交**。中键触发 Typeless，「＋」在 Codex 前台提交核对过的文字，由 Codex 按「引导」或「排队」处理后续消息。仓库提供可安装的 Skill、按键冲突检查、状态检查和卸载。
+
+Thanks to **Sergo Lebedovich**. The device-specific HID mapping and connection handling in EarPods AI Keys informed this project. Jaden EarPods Skill implements the Typeless and Codex workflow separately, with guided installation, conflict checks, and uninstall. [EarPods AI Keys](https://github.com/metalebedenko/earpods-ai-keys)
+
+整理引用时也查到了这两个更早公开的同类项目：
+
+- **AirPodKit**（wdwxw）提供通用的有线耳机按键映射，文档中有 Typeless 听写与提交示例。[AirPodKit](https://github.com/wdwxw/airpodKit)
+- **Codepods**（loutlot）用有线 EarPods 控制 ChatGPT 桌面应用，支持用线控切换近期模型和启动或停止语音输入。[Codepods](https://github.com/loutlot/codepods)
+
+macOS 按键映射、Typeless 和 Codex 设置的官方文档见[技术资料](jaden-earpods-skill/references/setup.md#technical-references)。
+
 [MIT License](LICENSE)

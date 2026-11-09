@@ -81,6 +81,8 @@ This package passed the native build, ad hoc signature verification, Skill valid
 
 Lightning, 3.5 mm and Bluetooth models use different interfaces. Compatibility with Intel Macs and earlier macOS releases has not been physically verified.
 
-- [Apple's key remapping technical note](https://developer.apple.com/library/archive/technotes/tn2450/)
+## Technical references
+
+- [Apple Technical Note TN2450 on key remapping](https://developer.apple.com/library/archive/technotes/tn2450/_index.html)
 - [Typeless settings](https://www.typeless.com/help/quickstart/settings)
 - [Codex desktop settings](https://learn.chatgpt.com/docs/reference/settings)
